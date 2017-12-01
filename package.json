@@ -2,7 +2,7 @@
   "name": "vue-json-content",
   "version": "1.0.0",
   "description": "A Vue.js component that displays pretty json",
-  "main": "dist/vue-clock.js",
+  "main": "dist/vue-json-content.js",
   "scripts": {
     "build": "rimraf ./dist && webpack --config ./webpack.config.js"
   },
