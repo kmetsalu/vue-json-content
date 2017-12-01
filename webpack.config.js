@@ -3,59 +3,59 @@ const merge = require('webpack-merge');
 const path = require('path');
 
 var config = {
-  output: {
-    path: path.resolve(__dirname + '/dist/'),
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        include: __dirname,
-        exclude: /node_modules/
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue'
-      },
-      {
-        test: /\.css$/,
-        loader: 'style!less!css'
-      }
+    output: {
+        path: path.resolve(__dirname + '/dist/'),
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                loader: 'babel',
+                include: __dirname,
+                exclude: /node_modules/
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue'
+            },
+            {
+                test: /\.css$/,
+                loader: 'style!less!css'
+            }
+        ]
+    },
+    externals: {
+        'json-formatter-js': 'json-formatter-js'
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
+            sourceMap: false,
+            mangle: true,
+            compress: {
+                warnings: false
+            }
+        })
     ]
-  },
-  externals: {
-    moment: 'moment'
-  },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin( {
-      minimize : true,
-      sourceMap : false,
-      mangle: true,
-      compress: {
-        warnings: false
-      }
-    } )
-  ]
 };
 
 
 module.exports = [
-  merge(config, {
-    entry: path.resolve(__dirname + '/src/plugin.js'),
-    output: {
-      filename: 'vue-json-content.min.js',
-      libraryTarget: 'window',
-      library: 'VueJsonContent',
-    }
-  }),
-  merge(config, {
-    entry: path.resolve(__dirname + '/src/plugin.js'),
-    output: {
-      filename: 'vue-json-content.js',
-      libraryTarget: 'umd',
-      library: 'vue-json-content',
-      umdNamedDefine: true
-    }
-  })
+    merge(config, {
+        entry: path.resolve(__dirname + '/src/plugin.js'),
+        output: {
+            filename: 'vue-json-content.min.js',
+            libraryTarget: 'window',
+            library: 'VueJsonContent',
+        }
+    }),
+    merge(config, {
+        entry: path.resolve(__dirname + '/src/plugin.js'),
+        output: {
+            filename: 'vue-json-content.js',
+            libraryTarget: 'umd',
+            library: 'vue-json-content',
+            umdNamedDefine: true
+        }
+    })
 ];
