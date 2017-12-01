@@ -1,15 +1,15 @@
 const JsonFormatter = require('json-formatter-js');
 
 module.exports = {
-  install: function (Vue, options) {
-    Vue.directive("json-content", function (el, binding) {
-      let renderer = new JsonFormatter(binding.value);
-      el.appendChild(renderer.render());
-      if (!document.getElementById("json-formatter-style")) {
-        let styleTag = document.createElement('style');
-        styleTag.setAttribute("id", "json-formatter-style");
-        styleTag.setAttribute("type", "text/css");
-        let css = document.createTextNode(`
+    install: function (Vue, options) {
+        Vue.directive("json-content", function (el, binding) {
+            let renderer = new JsonFormatter(binding.value);
+            el.appendChild(renderer.render());
+            if (!document.getElementById("json-formatter-style")) {
+                let styleTag = document.createElement('style');
+                styleTag.setAttribute("id", "json-formatter-style");
+                styleTag.setAttribute("type", "text/css");
+                let css = document.createTextNode(`
     .json-formatter-row {
         font-family: monospace;
     }
@@ -205,9 +205,9 @@ module.exports = {
         display: block;
     }
   `);
-        styleTag.appendChild(css);
-        document.head.appendChild(styleTag);
-      }
-    });
-  }
+                styleTag.appendChild(css);
+                document.head.appendChild(styleTag);
+            }
+        });
+    }
 };
