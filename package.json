@@ -1,6 +1,6 @@
 {
   "name": "vue-json-content",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Vue.js component that displays pretty json",
   "main": "dist/vue-json-content.js",
   "scripts": {
