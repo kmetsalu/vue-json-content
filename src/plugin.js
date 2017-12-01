@@ -1,4 +1,4 @@
-const JsonFormatter = require('json-formatter-js');
+import JsonFormatter from 'json-formatter-js'
 
 module.exports = {
     install: function (Vue, options) {
